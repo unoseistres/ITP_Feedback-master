@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Feedback</title>
+		<link rel="stylesheet" href="css/third_party/bootstrap.min.css">
+		<link rel="stylesheet" href="css/third_party/vex.css">
+		<link rel="stylesheet" href="css/third_party/vex-theme-wireframe.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+		<h1>
+			ITP Feedback Creator
+		</h1>
+
+		<div class="container">
+			<button id="login" class="btn btn-default">Log In</button>
+			
+			<div class="dropdown">
+			<button id="classes" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Classes
+			<span class="caret"></span></button>
+				<ul id= "list" class="dropdown-menu">
+					
+  				</ul>
+			</div>
+
+			<div class="info">
+				<div id="course_name">Course Name: </div>
+				<div id="teacher_name">Teacher Name: </div>
+				<div id="time_space">Course Time: </div>
+				<div id="course_number">Course Number: </div>
+			</div>
+
+			<!-- Textbox input -->
+			<div class="inputHolder">
+				<textarea id="all_textStart" placeholder="Stuff to stay at the begining of all emails. Eg. It's nice to have you in my class this semester..." >It's nice to have you in my class this semester.</textarea>
+				<textarea id="all_textEnd" placeholder="Stuff to stay at the end of all emails. Eg. Wish you the best. Get weird!">Wish you the best. Get weird!</textarea>
+			</div>
+
+			<!-- Ranking elements at the top-->
+			<div class="page-header"> 
+				<h3>Objective Score Elements</h3>
+			</div>
+
+			<ul id="eval_items">
+				<li class="Fabrication">Fabrication<i class="js-remove">X</i></li>
+				<li class="Participation">Participation<i class="js-remove">X</i></li>
+				<li class="Concept developing">Concept developing<i class="js-remove">X</i></li>
+				<li class="Organizing">Organizing<i class="js-remove">X</i></li>
+				<li class="Presentation">Presentation<i class="js-remove">X</i></li>
+			</ul>
+			<button id="add_skill">Add</button>
+			<button id="update_skill">Update</button>
+
+			<!-- Div for all the students -->
+			<div id="studentHolder"></div>
+
+			<!-- Bottom button to SAVE ALL data -->
+			<div class="buttonHolder">
+				<button id="saveAllButton" onclick="saveAllButton(event)" style="">Save All</button>
+			</div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/third_party/bootstrap.min.js"></script>
+		<script src="js/third_party/Sortable.js"></script>
+		<script src="js/third_party/vex.combined.min.js"></script>
+		<script src="js/third_party/html2canvas_v05.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.19/p5.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+
+	</body>
+</html>
