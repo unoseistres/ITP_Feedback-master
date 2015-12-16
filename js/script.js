@@ -137,6 +137,7 @@ function doLoginDialog() {
 							a.textContent = teacherStuff[data.netId].classes[i].name;
 							a.setAttribute('href', "#");
 							a.setAttribute("id", a.textContent);
+							a.setAttribute("value", teacherStuff[data.netId].classes[i].section_id);
 
 							newItem.appendChild(a);
 							ulist.appendChild(newItem);
@@ -149,19 +150,28 @@ function doLoginDialog() {
 				//pull it's data	
 
 							$("a").click(function(){
-						
+								//if class name and id name match
 								if (this.id === this.text){
 									console.log(this.id + ", " + this.text );
-									//list new class and erase old 
-									
-									
-									
-									this.id = ultimateSectionID;
+								//get data of this id 
+/*
+									ultimateSectionID = this.id.section_id;
+// 									ultimateSectionID = $(this).val();
+									theSection_id = ultimateSectionID;
 									readyToLaunch = true;
-									console.log(ultimateSectionID);
 						
 						
-// 									init();								
+									
+*/
+									console.log(this.getAttribute('value'));
+									ultimateSectionID = this.getAttribute('value');
+									theSection_id = ultimateSectionID;
+									readyToLaunch = true;
+						
+									console.log(theSection_id);
+						
+									init();
+							
 		
 								}
 								
@@ -190,8 +200,9 @@ function doLoginDialog() {
 						theSection_id = ultimateSectionID;
 						readyToLaunch = true;
 						
+						console.log(theSection_id);
 						
-							init();
+						init();
 					}
 					
 				});
@@ -522,6 +533,7 @@ function init () {
 	}
 
 	$.getJSON( list_student(), function(data){
+		console.log(data);
 		allData = data;
 		// console.log(data[0]);
 
