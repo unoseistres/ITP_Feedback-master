@@ -68,6 +68,7 @@ function superInit() {
 	// For instructors to LogIn (TO-DO)
 		vex.defaultOptions.className = 'vex-theme-wireframe';
 		doLoginDialog();
+/*
 		
 			byId('login').onclick = function() {
 		if(readyToLaunch){
@@ -76,9 +77,13 @@ function superInit() {
 			doLoginDialog();
 		}
 	}
+*/
 
 	
 }
+
+
+
 
 function doLoginDialog() {
 	vex.dialog.open({
@@ -88,9 +93,11 @@ function doLoginDialog() {
 			$.extend({}, vex.dialog.buttons.YES, {
 				text: "Login"
 			}),
+/*
 			$.extend({}, vex.dialog.buttons.NO, {
 				text: "Back"
 			})
+*/
 		],
 		callback: function(data) {
 			if(data===false){
@@ -129,6 +136,7 @@ function doLoginDialog() {
 					
 							console.log("hello");
 
+/*
 							var a = document.createElement("a");
 							var ulist = document.getElementById("list");
 							var newItem = document.createElement("li");
@@ -141,6 +149,7 @@ function doLoginDialog() {
 
 							newItem.appendChild(a);
 							ulist.appendChild(newItem);
+*/
 				
 								
 				}
@@ -149,34 +158,61 @@ function doLoginDialog() {
 				//when li is clicked, look for corresponding class name and 
 				//pull it's data	
 
-							$("a").click(function(){
+								$("#classes").click(function(){
 								//if class name and id name match
+/*
 								if (this.id === this.text){
 									console.log(this.id + ", " + this.text );
-								//get data of this id 
-/*
-									ultimateSectionID = this.id.section_id;
-// 									ultimateSectionID = $(this).val();
-									theSection_id = ultimateSectionID;
-									readyToLaunch = true;
-						
-						
-									
-*/
 									console.log(this.getAttribute('value'));
 									ultimateSectionID = this.getAttribute('value');
 									theSection_id = ultimateSectionID;
 									readyToLaunch = true;
 						
-									console.log(theSection_id);
+// 									console.log(theSection_id);
+									
+									//delete old data
 						
+									
+									//then start again---getting new data
 									init();
 							
 		
 								}
-								
+*/
+								//go back to dialgoue box
+								vex.dialog.open({
+					message: "Hi teacher " + data.lastname + ", which class do you want to give feedback on?",
+					input: stringForSelect,
+					buttons: [
+						$.extend({}, vex.dialog.buttons.YES, {
+							text: "OK"
+						})
+						// $.extend({}, vex.dialog.buttons.NO, {
+						// 	text: "Back"
+						// })
+					],
+					callback: function(dataaa) {
+						if(dataaa===false){
+							vex.dialog.alert("See you later!");
+							return;
+						}
+						ultimateSectionID = $("#selectClass").val();
+						theSection_id = ultimateSectionID;
+						readyToLaunch = true;
+						
+						$('div').removeData('');
 
- 							});
+						
+						console.log(theSection_id);
+						
+						init();
+						
+						
+					}
+					
+				});
+								
+		 							});
 			
 							
 
